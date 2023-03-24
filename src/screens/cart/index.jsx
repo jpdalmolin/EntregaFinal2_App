@@ -1,4 +1,4 @@
-import { Button, FlatList, KeyboardAvoidingView, Platform, ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Button, FlatList, KeyboardAvoidingView, Platform, SafeAreaView, ScrollView, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native';
 import { confirmOrder, removeFromCart } from '../../store/actions';
 import{useDispatch, useSelector} from 'react-redux';
 
@@ -7,25 +7,25 @@ import { styles } from './styles';
 import { useState } from 'react';
 
 const Cart=({navigation}) =>{
+  
+
     const dispatch = useDispatch();
     const cart=useSelector((state)=>state.cart.items);
     const total=useSelector((state)=>state.cart.total);
     const [email,setEmail]=useState('');
-    const [reEmail,reSetEmail]=useState('');
+    const [emails,setEmails]=useState('');
     const [isEditable,setIsEditable]=useState(true);
-
+    const[disable,setDisabled]=useState(false);
     const updateState = () => {
       
       setIsEditable(!isEditable);
+      
     };
 
-  const onHandlerConfirm=(t) =>{
-    setEmail(t);
-    
-  }
-  const onHandlerReConfirm=(t) =>{
-    reSetEmail(t); 
-  }
+    const onHandlerConfirm=(t) =>{
+      setEmail(t);
+    }
+   
 
     const onDelete = (id) => {
         dispatch(removeFromCart(id));
@@ -44,7 +44,9 @@ const Cart=({navigation}) =>{
   )
   const Footer=()=>
     cart.length > 0 &&(
+
         <View style={styles.footer}>
+          
           <TouchableOpacity style={styles.buttonConfirm} onPress={onCreateOrder}>
             <Text  style={styles.buttonConfirmText}>Confirm</Text>
             <View style={styles.totalContainer}>
@@ -55,45 +57,15 @@ const Cart=({navigation}) =>{
         </View>
   )
 
-  const Emails=()=>
-  cart.length > 0 &&(
-    <View style={styles.textContainerInput}>
-    <TextInput style={styles.textInput}
-            id='emailV'
-            name='email'
-            type="text"
-            onChangeText={onHandlerConfirm}
-            placeholder='Enter email for post-order contact'
-            value={email}
-            editable={isEditable}
-                        
-        />
-        <TextInput style={styles.textReInput}
-            id='reEmail'
-            name='reEmail'
-            type="text"
-            onChangeText={onHandlerReConfirm}
-            placeholder='Confirm email for post-order contact'
-            value={reEmail}
-            editable={isEditable}       
-        />
-        <Button
-          title={
-            isEditable
-              ? 'Confirm Email'
-              : 'Change Email'
-          }
-          onPress={updateState}
-        />       
-        </View>
-      )
-
+  
     return (
       
       <KeyboardAvoidingView
       style={styles.keybordContainer}
       behavior={Platform.OS === 'android' ? 'height' : 'padding'}
-      enabled>
+      enabled
+      keyboardVerticalOffset={Platform.select({ios: 0, android: 200})}>
+        
         
         <View style={styles.container}>
         
@@ -104,12 +76,40 @@ const Cart=({navigation}) =>{
             renderItem={renderItem}
             keyExtractor={keyExtractor}
             style={styles.listContainer}
+            
           />
         </View>
+
+
+        {cart.length > 0 &&(
+        <View style={styles.textContainerInput}>
+          
+        <TextInput style={styles.textInput} 
+            id='emailV'
+            
+            name='email'
+            type="text"
+            onChangeText={onHandlerConfirm}
+            placeholder='Enter email for post-order contact'
+            value={email}
+            editable={isEditable}
+            autoCorrect={false}
+            autoCapitalize="none"
+            autoComplete='off'
+            
+        /> 
+        <Button
+          title={
+            isEditable
+              ? 'Confirm Email'
+              : 'Change Email'
+          }   
+              onPress={updateState}
+        />       
         
-        <Emails/>
-             
-              
+        </View>
+        )}
+           
               
         <Footer/>
         

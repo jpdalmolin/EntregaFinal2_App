@@ -68,24 +68,16 @@ export const styles= StyleSheet.create({
       },
       textInput:{
         height:40,
-        
         borderTopWidth: 0.1,
         fontFamily: 'Raleway-Bold',
         fontSize: 17,
         paddingHorizontal: 10,
       },
-      textReInput:{
-        
-        height:40,
-        
-        borderTopWidth: 0.1,
-        fontFamily: 'Raleway-Bold',
-        fontSize: 17,
-        paddingHorizontal: 10,
-      },
+      
       textContainerInput:{
-        marginBottom:27,
+        marginBottom:0,
         paddingBo0ttom:10,
-      }
+      },
+      
       
 });
