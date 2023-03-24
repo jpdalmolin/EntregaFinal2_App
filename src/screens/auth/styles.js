@@ -6,19 +6,22 @@ export const styles = StyleSheet.create({
     flex: 1,
   },
   container: {
-    flex: 1,
+    flex: 0.9,
     justifyContent: 'center',
     alignItems: 'center',
+    
   },
   content: {
     width: '80%',
     maxWidth: 400,
     padding: 15,
+    
     margin: 15,
     borderColor: colors.primary,
     borderWidth: 1,
     backgroundColor: colors.white,
     borderRadius: 5,
+    
     minHeight: 370,
   },
   title: {
@@ -57,15 +60,15 @@ export const styles = StyleSheet.create({
   },
   welcomeText:{
     marginVertical:0,
-    marginBottom:50,
-    fontSize: 25,
+    marginBottom:30,
+    fontSize: 33,
     fontFamily: 'Raleway-Bold',
     color:colors.primary,
   },
   secWelcomeText:{
     marginTop:0,
     fontSize: 18,
-    fontFamily: 'Raleway-Light',
+    fontFamily: 'Raleway-Regular',
     color:colors.error,
   }
 });

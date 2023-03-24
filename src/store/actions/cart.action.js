@@ -31,13 +31,13 @@ export const confirmOrder=(items,total,email)=>{
             }),
         });
         const result=await response.json();
-        console.warn('result',result);
+        
         dispatch({
             type:CONFIRM_ORDER,
             result
         });
     }   catch(error){
-        console.warn('error',error);
+        
         dispatch({
             type:CONFIRM_ORDER,
             error,

@@ -19,8 +19,8 @@ const ProductDetail=({navigation})=>{
             <Text style={styles.title}>{product?.title}</Text>
             <Text style={styles.title}>{product?.description}</Text>
             <Text style={styles.title}>{product?.weight}</Text>
-            <Text style={styles.title}>{product?.price}</Text>
-            
+            <Text style={styles.title}>${product?.price}</Text>
+            <Image style={styles.image} source={{uri:product?.image}}/>
            <Button 
             title="Add to Cart"
             onPress={onAddToCart}

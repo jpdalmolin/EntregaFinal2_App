@@ -1,4 +1,4 @@
-import { Button, KeyboardAvoidingView, Platform, Text, TouchableOpacity, View } from 'react-native';
+import { Button, KeyboardAvoidingView, Platform, SafeAreaView, Text, TouchableOpacity, View } from 'react-native';
 import { UPDATED_FORM, onInputChange } from '../../utils/form';
 import { signIn, signUp } from '../../store/actions';
 import { useReducer, useState } from 'react';
@@ -54,11 +54,7 @@ const Auth = ({ navigation }) => {
     onInputChange(type, value, dispatchFormState, formState);
   };
   return (
-    <KeyboardAvoidingView
-      style={styles.keybordContainer}
-      behavior={Platform.OS === 'android' ? 'height' : 'padding'}
-      enabled>
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <Text style={styles.welcomeText}>Welcome to HardStore</Text>
         <Text style={styles.secWelcomeText}>Please Register or Login</Text>
         <View style={styles.content}>
@@ -99,8 +95,9 @@ const Auth = ({ navigation }) => {
             </View>
           </View>
         </View>
-      </View>
-    </KeyboardAvoidingView>
+      </SafeAreaView>
+    
+    
   );
 };
 

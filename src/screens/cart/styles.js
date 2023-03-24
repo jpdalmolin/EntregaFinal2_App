@@ -4,23 +4,25 @@ import { colors } from "../../constants/theme/colors";
 export const styles= StyleSheet.create({
     container: {
         flex: 1,
-       
+        
         backgroundColor: colors.background,
       },
       keybordContainer: {
         flex: 1,
-        keyboardVerticalOffset:10,
+        keyboardVerticalOffset:500,
       },
       listContainer: {
         flex: 1,
+        
         backgroundColor: colors.white,
       },
       footer: {
         backgroundColor: colors.white,
         borderTopColor: colors.primary,
         borderTopWidth: 0.5,
-        paddingVertical: 10,
+        paddingVertical: 2,
         paddingHorizontal: 10,
+        marginBottom:10,
       },
       buttonConfirm: {
         backgroundColor: colors.primary,
@@ -65,11 +67,25 @@ export const styles= StyleSheet.create({
         fontSize:18
       },
       textInput:{
-        height:60,
+        height:40,
+        
         borderTopWidth: 0.1,
         fontFamily: 'Raleway-Bold',
         fontSize: 17,
-        width: '100%',
+        paddingHorizontal: 10,
+      },
+      textReInput:{
+        
+        height:40,
+        
+        borderTopWidth: 0.1,
+        fontFamily: 'Raleway-Bold',
+        fontSize: 17,
+        paddingHorizontal: 10,
+      },
+      textContainerInput:{
+        marginBottom:27,
+        paddingBo0ttom:10,
       }
       
 });

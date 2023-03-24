@@ -31,10 +31,10 @@ const NewPlace = ({ navigation }) => {
     return (
     <ScrollView style={styles.container}>
       <View style={styles.content}>
-        <Text style={styles.title}>Lugar</Text>
+        <Text style={styles.title}>Location Name</Text>
         <TextInput
           style={styles.input}
-          placeholder="Escribe el nombre del lugar"
+          placeholder="Type Address Name"
           onChangeText={onHandlerChange}
           value={title}
         />
@@ -43,7 +43,7 @@ const NewPlace = ({ navigation }) => {
         <Button
           disabled={title.length === 0}
           color={colors.primary}
-          title="Guardar"
+          title="Save Address"
           onPress={onHandlerSubmit}
         />
       </View>

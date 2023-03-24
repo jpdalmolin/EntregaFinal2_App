@@ -49,13 +49,13 @@ export const deleteOrder=(id)=>{
             }
         });
         const result= await response.json();
-        console.warn('result',result);
+        
         dispatch({
             type:DELETE_ORDER,
             id,
         });
         } catch(error){
-            console.warn('error',error);
+            
             dispatch({
                 type:DELETE_ORDER,
                 error,

@@ -6,7 +6,8 @@ export const styles = StyleSheet.create({
         flex:1,
     },
     input: {
-        
+      alignItems: 'center',
+      justifyContent: 'center',
         borderBottomColor: colors.primary,
         borderBottomWidth: 1,
         width: '90%',

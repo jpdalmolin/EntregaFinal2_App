@@ -13,7 +13,7 @@ const ImageSelector = ({ onImage }) => {
   const verifyPermissions = async () => {
     const { status } = await ImagePicker.requestCameraPermissionsAsync();
     if (status !== "granted") {
-      Alert.alert("Permisos insuficientes", "Necesitas dar permisos para usar la cámara.", [
+      Alert.alert("Insufficent Permissions", "You need to give Access to use Camera", [
         { text: "Ok" },
       ]);
       return false;
@@ -39,12 +39,12 @@ const ImageSelector = ({ onImage }) => {
     <View style={styles.container}>
       <View style={styles.preview}>
         {!pickedUrl ? (
-          <Text>No hay imagen seleccionada.</Text>
+          <Text>No Image Selected</Text>
         ) : (
           <Image style={styles.image} source={{ uri: pickedUrl }} />
         )}
       </View>
-      <Button title="Seleccionar imagen" color={colors.primary} onPress={onHandleTakeImage} />
+      <Button title="Select Image" color={colors.primary} onPress={onHandleTakeImage} />
     </View>
   );
 };

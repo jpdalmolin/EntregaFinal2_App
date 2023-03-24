@@ -5,6 +5,7 @@ export const styles = StyleSheet.create({
     
     justifyContent: 'center',
     alignContent: 'center',
+    
     },
     mapImage:{
         width: '100%',

@@ -25,13 +25,7 @@ const ShopNavigator = () => {
             options={{
                 headerShown:true,
                 title:"Categories",
-                headerRight:()=>{
-                    return(
-                        <TouchableOpacity>
-                            <Text>Click Here!</Text>
-                        </TouchableOpacity>
-                    )
-                }
+                
             }}/>
             <Stack.Screen name='Products'
              component={Products}  
@@ -39,7 +33,7 @@ const ShopNavigator = () => {
                 title:route.params.title,
                 headerRight:()=>(
                     <TouchableOpacity onPress={() => navigation.navigate('Cart')}>
-                        <Text>Cart</Text>
+                        <Text>Go to Cart!</Text>
                     </TouchableOpacity>
                 )
              })}
@@ -54,7 +48,7 @@ const ShopNavigator = () => {
                 title:route.params.title,
                 headerRight:()=>(
                     <TouchableOpacity onPress={() => navigation.navigate('Cart')}>
-                        <Text>Cart</Text>
+                        <Text>Go to Cart!</Text>
                     </TouchableOpacity>
                 )
              })}/>

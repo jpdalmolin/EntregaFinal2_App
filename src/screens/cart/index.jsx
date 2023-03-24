@@ -1,4 +1,4 @@
-import { Button, FlatList, KeyboardAvoidingView, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Button, FlatList, KeyboardAvoidingView, Platform, ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { confirmOrder, removeFromCart } from '../../store/actions';
 import{useDispatch, useSelector} from 'react-redux';
 
@@ -11,12 +11,21 @@ const Cart=({navigation}) =>{
     const cart=useSelector((state)=>state.cart.items);
     const total=useSelector((state)=>state.cart.total);
     const [email,setEmail]=useState('');
+    const [reEmail,reSetEmail]=useState('');
+    const [isEditable,setIsEditable]=useState(true);
+
+    const updateState = () => {
+      
+      setIsEditable(!isEditable);
+    };
 
   const onHandlerConfirm=(t) =>{
     setEmail(t);
-  
+    
   }
-
+  const onHandlerReConfirm=(t) =>{
+    reSetEmail(t); 
+  }
 
     const onDelete = (id) => {
         dispatch(removeFromCart(id));
@@ -45,13 +54,49 @@ const Cart=({navigation}) =>{
           </TouchableOpacity>
         </View>
   )
+
+  const Emails=()=>
+  cart.length > 0 &&(
+    <View style={styles.textContainerInput}>
+    <TextInput style={styles.textInput}
+            id='emailV'
+            name='email'
+            type="text"
+            onChangeText={onHandlerConfirm}
+            placeholder='Enter email for post-order contact'
+            value={email}
+            editable={isEditable}
+                        
+        />
+        <TextInput style={styles.textReInput}
+            id='reEmail'
+            name='reEmail'
+            type="text"
+            onChangeText={onHandlerReConfirm}
+            placeholder='Confirm email for post-order contact'
+            value={reEmail}
+            editable={isEditable}       
+        />
+        <Button
+          title={
+            isEditable
+              ? 'Confirm Email'
+              : 'Change Email'
+          }
+          onPress={updateState}
+        />       
+        </View>
+      )
+
     return (
+      
       <KeyboardAvoidingView
       style={styles.keybordContainer}
       behavior={Platform.OS === 'android' ? 'height' : 'padding'}
       enabled>
+        
         <View style={styles.container}>
-    
+        
         <View style={styles.listContainer}>
         <Header/>
           <FlatList
@@ -61,22 +106,17 @@ const Cart=({navigation}) =>{
             style={styles.listContainer}
           />
         </View>
-        <View>
-        <TextInput style={styles.textInput}
-            id='emailV'
-            name='email'
-            type="text"
-            onChangeText={onHandlerConfirm}
-            placeholder='Enter email for this order'
-            value={email}
-                        
-        />
-                    
+        
+        <Emails/>
+             
               
-              </View>
+              
         <Footer/>
+        
       </View>
+      
       </KeyboardAvoidingView>
+      
     );
 };
 

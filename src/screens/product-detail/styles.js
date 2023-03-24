@@ -9,8 +9,14 @@ export const styles = StyleSheet.create({
         
     },
     title:{
-        fontSize:14,
-        fontFamily:'Raleway-Medium',
+        fontSize:20,
+        fontFamily:'Raleway-Bold',
         padding:10,
+    },
+    image:{
+        width: 200,
+        height: 200,
+        marginTop: 50,
+        marginBottom:50,
     }
 });

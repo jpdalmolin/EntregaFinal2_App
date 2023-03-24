@@ -42,7 +42,7 @@ export const savePlace=(title,image,coords) => {
         
         const address =data.results[0].formatted_address;
         const result=await insertPlace(title,image,address,coords)
-        console.warn("result",result)
+        
         dispatch(addPlace({id:result.insertId,title,image,address,coords}))
     } catch(error) {
         console.log(error)

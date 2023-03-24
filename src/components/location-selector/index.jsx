@@ -56,7 +56,7 @@ const LocationSelector=({onLocation})=>{
         <View style={styles.container}>
             <View style={styles.preview}>
                 <MapPreview location={pickedLocation} style={styles.preview}>
-                <Text style={styles.text}>No Selected Location</Text>
+                <Text  style={styles.text}>No Selected Location</Text>
                 </MapPreview>
             </View>
             <Button 

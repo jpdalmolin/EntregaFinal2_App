@@ -27,7 +27,7 @@ const PlacesNavigator = () => {
         name="PlaceList"
         component={PlaceListScreen}
         options={({ navigation }) => ({
-          title: "Direcciones",
+          title: "My Address",
           headerRight: () => (
             <TouchableOpacity
               style={{ marginRight: 0 }}
@@ -40,12 +40,12 @@ const PlacesNavigator = () => {
       <Stack.Screen
         name="PlaceDetail"
         component={PlaceDetailScreen}
-        options={{ title: "Detalles de la dirección" }}
+        options={{ title: "Address Details" }}
       />
       <Stack.Screen
         name="NewPlace"
         component={NewPlaceScreen}
-        options={{ title: "Nueva dirección" }}
+        options={{ title: "New Address" }}
       />
       <Stack.Screen name="Maps" component={MapsScreen} options={{ title: "Mapa" }} />
     </Stack.Navigator>
