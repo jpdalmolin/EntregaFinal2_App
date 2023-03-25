@@ -47,8 +47,8 @@ const Cart=({navigation}) =>{
 
         <View style={styles.footer}>
           
-          <TouchableOpacity style={styles.buttonConfirm} onPress={onCreateOrder}>
-            <Text  style={styles.buttonConfirmText}>Confirm</Text>
+          <TouchableOpacity style={styles.buttonConfirm} disabled={isEditable}  onPress={onCreateOrder}>
+            <Text  style={styles.buttonConfirmText} >Confirm</Text>
             <View style={styles.totalContainer}>
               <Text style={styles.totalText}>     Total:</Text>
               <Text style={styles.totalPrice}>$ {total}</Text>
