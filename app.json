@@ -1,10 +1,10 @@
 {
   "expo": {
-    "name": "projectapp",
-    "slug": "projectapp",
+    "name": "HardStore",
+    "slug": "HardStore",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/iconn.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
@@ -18,16 +18,36 @@
       "**/*"
     ],
     "ios": {
+      "bundleIdentifier": "com.HardStore",
+      "buildNumber": "1.0.0",
       "supportsTablet": true
     },
     "android": {
+      "package": "com.HardStore",
+      "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
+      },
+      "permissions": [
+        "ACCESS_FINE_LOCATION",
+        "CAMERA",
+        "WRITE_EXTERNAL_STORAGE"
+      ],
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyDAW7YNr6URByM3B7XTJ72GCxrQbHPnFc4"
+        }
       }
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "fccef9b9-3fb1-4b3f-ac70-1288ce84d871"
+      }
     }
+    
   }
 }
